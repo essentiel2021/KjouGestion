@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSac extends Migration
+class CreateRemorque extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateSac extends Migration
      */
     public function up()
     {
-        Schema::create('Sacs', function (Blueprint $table) {
+        Schema::create('Remorques', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('fournisseur_id')->constrained();
-            $table->integer('sac_restitue');
-            $table->integer('sac_restant');
+            $table->string('');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateSac extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Sacs');
+        Schema::dropIfExists('Remorques');
     }
 }

@@ -17,9 +17,9 @@ class CreateAnalyseDeChargementsTable extends Migration
             $table->id();
             $table->string('analyseur');
             $table->boolean('etat')->nullable()->default(false);
-            $table->float('th_amande');
-            $table->float('th_cajou');
-            $table->float('outturn');
+            $table->float('th_amande',8,2);
+            $table->float('th_cajou',8,2);
+            $table->float('outturn',8,2);
             $table->integer('grainage');
             $table->integer('huileux');
             $table->integer('pique');
