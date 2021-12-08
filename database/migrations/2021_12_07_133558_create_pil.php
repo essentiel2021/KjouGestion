@@ -16,7 +16,7 @@ class CreatePil extends Migration
         Schema::create('Pils', function (Blueprint $table) {
             $table->id();
             $table->string('libelle');
-            $table->slug('slug');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateSite extends Migration
         Schema::create('Sites', function (Blueprint $table) {
             $table->id();
             $table->string('libelle');
-            $table->slug('slug');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

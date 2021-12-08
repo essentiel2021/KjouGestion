@@ -16,7 +16,7 @@ class CreateVehicule extends Migration
         Schema::create('Vehicules', function (Blueprint $table) {
             $table->id();
             $table->string('matricule');
-            $table->slug('slug');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

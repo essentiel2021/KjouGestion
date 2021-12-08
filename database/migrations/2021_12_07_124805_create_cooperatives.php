@@ -16,7 +16,7 @@ class CreateCooperatives extends Migration
         Schema::create('Cooperatives', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->slug('slug');
+            $table->string('slug')->nullable();
             $table->string('libelle');
             $table->string('sigle');
             $table->string('contact');

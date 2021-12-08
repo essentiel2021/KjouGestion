@@ -16,7 +16,7 @@ class CreateChauffeur extends Migration
         Schema::create('Chauffeurs', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->slug('slug');
+            $table->string('slug')->nullable();
             $table->string('numeroPermis');
             $table->timestamps();
         });

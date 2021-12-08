@@ -16,7 +16,7 @@ class CreateProvenance extends Migration
         Schema::create('Provenances', function (Blueprint $table) {
             $table->id();
             $table->string('libelle');
-            $table->slug('slug');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

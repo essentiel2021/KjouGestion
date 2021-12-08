@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFournisseurs extends Migration
+class CreateSac extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateFournisseurs extends Migration
      */
     public function up()
     {
-        Schema::create('Fournisseurs', function (Blueprint $table) {
+        Schema::create('Sacs', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('slug')->nullable();
-            $table->char('sexe');
-            $table->string('contact');
+            $table->integer('sac_restitue');
+            $table->integer('sac_restant');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateFournisseurs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Fournisseurs');
+        Schema::dropIfExists('Sacs');
     }
 }
