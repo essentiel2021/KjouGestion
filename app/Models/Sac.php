@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sac extends Model
 {
     use HasFactory;
+    public function fournisseur(){
+        return $this->belongsTo(Fournisseur::class);
+    }
 }

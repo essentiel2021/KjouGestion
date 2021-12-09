@@ -15,7 +15,7 @@ class CreateRemorque extends Migration
     {
         Schema::create('Remorques', function (Blueprint $table) {
             $table->id();
-            $table->string('');
+            $table->string('libelle');
             $table->timestamps();
         });
     }

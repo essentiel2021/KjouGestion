@@ -15,6 +15,7 @@ class CreateLot extends Migration
     {
         Schema::create('Lots', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('campagne_id')->constrained();
             $table->foreignId('cooperative_id')->constrained();
             $table->foreignId('fournisseur_id')->constrained();
             $table->foreignId('client_id')->constrained();
@@ -23,9 +24,10 @@ class CreateLot extends Migration
             $table->foreignId('site_id')->constrained();
             $table->foreignId('produit_id')->constrained();
             $table->foreignId('provenance_id')->constrained();
+            $table->foreignId('transfert_id')->constrained();
+            $table->foreignId('analysedechargement_id')->constrained();
+            $table->foreignId('analysetransfert_id')->constrained();
             $table->foreignId('pil_id')->constrained();
-            $table->foreignId('analyse_transfert_id')->constrained();
-            $table->foreignId('analyse_dechargement_id')->constrained();
             $table->string('libelle');
             $table->integer('poids_premier_pese');
             $table->integer('poids_deuxieme_pese');
@@ -43,6 +45,8 @@ class CreateLot extends Migration
             $table->boolean('etat')->nullable()->default(false);
             $table->dateTime('date_premier_pese');
             $table->dateTime('date_deuxieme_pese');
+
+
             $table->timestamps();
         });
     }

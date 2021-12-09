@@ -15,6 +15,8 @@ class CreateCampagne extends Migration
     {
         Schema::create('Campagnes', function (Blueprint $table) {
             $table->id();
+            $table->string('libelle');
+            $table->string('slug')->nullable();
             $table->year('annee_encours');
             $table->year('annee_suivante');
             $table->timestamps();

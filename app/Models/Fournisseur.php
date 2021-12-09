@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Fournisseur extends Model
 {
     use HasFactory;
+    public function lots(){
+        return $this->hasMany(Lot::class);
+    }
+    public function sacs(){
+        return $this->hasMany(Sac::class);
+    }
 }

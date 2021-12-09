@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicule extends Model
 {
     use HasFactory;
+    public function lots(){
+        return $this->hasMany(Lot::class);
+    }
 }

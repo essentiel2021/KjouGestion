@@ -22,8 +22,6 @@ class CreateTransfert extends Migration
             $table->foreignId('site_id')->constrained();
             $table->foreignId('produit_id')->constrained();
             $table->foreignId('provenance_id')->constrained();
-            $table->foreignId('analyse_transfert_id')->constrained();
-            $table->foreignId('analyse_dechargement_id')->constrained();
             $table->integer('poids_sortie');
             $table->integer('poids_usine');
             $table->timestamps();
