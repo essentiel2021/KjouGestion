@@ -15,6 +15,7 @@ class CreateLot extends Migration
     {
         Schema::create('Lots', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->nullable();
             $table->foreignId('campagne_id')->constrained();
             $table->foreignId('cooperative_id')->constrained();
             $table->foreignId('fournisseur_id')->constrained();
