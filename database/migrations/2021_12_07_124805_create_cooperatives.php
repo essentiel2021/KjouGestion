@@ -17,8 +17,8 @@ class CreateCooperatives extends Migration
             $table->id();
             $table->string('nom');
             $table->string('slug')->nullable();
-            $table->string('libelle');
-            $table->string('sigle');
+            $table->string('libelle')->nullable();
+            $table->string('sigle')->nullable();
             $table->string('contact');
             $table->timestamps();
         });
