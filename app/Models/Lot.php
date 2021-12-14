@@ -20,7 +20,7 @@ class Lot extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom('nom')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
     }

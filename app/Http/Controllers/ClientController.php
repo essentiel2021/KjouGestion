@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClientRequest;
+use App\Models\Client;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -13,7 +16,11 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'title' => $description = 'Liste des clients',
+            'description' => $description,
+        ];
+        return view('clients.index',$data);
     }
 
     /**
@@ -23,7 +30,11 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouveau cleint',
+            'description' => $description,
+        ];
+        return view('clients.create',$data);
     }
 
     /**
@@ -32,9 +43,28 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Client::create($validatedData);
+        // $client = Client::create( request()->validate([
+        //     'nom' => ['required']
+        // ]));
+
+        // request()->validate([
+        //     'nom' => ['required']
+        // ]);
+
+        // $client = new Client();
+        // $client->nom = request('nom');
+        // $client->save();
+
+        // $client = Client::create([
+        //     'nom' => request('nom')
+        // ]);
+
+        $success = 'client ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

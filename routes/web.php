@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FournisseursController;
 use App\Http\Controllers\HomeController;
+use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resources([
+    'fournisseurs' =>FournisseursController::class,
+    'clients' => ClientController::class
+]);
 
 // Route::get('/', function () {
 //     return view('home.index');
