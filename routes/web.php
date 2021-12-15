@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CampagneController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FournisseursController;
 use App\Http\Controllers\HomeController;
@@ -18,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::resources([
     'fournisseurs' =>FournisseursController::class,
-    'clients' => ClientController::class
+    'clients' => ClientController::class,
+    'campagnes' => CampagneController::class
 ]);
 
 // Route::get('/', function () {

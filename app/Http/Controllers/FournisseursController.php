@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FournisseurRequest;
+use App\Models\Fournisseur;
 use Illuminate\Http\Request;
 
 class FournisseursController extends Controller
@@ -23,7 +25,11 @@ class FournisseursController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouveau fournisseur',
+            'description' => $description,
+        ];
+        return view('fournisseurs.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class FournisseursController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FournisseurRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Fournisseur::create($validatedData);
+        $success = 'fournisseur ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

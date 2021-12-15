@@ -22,4 +22,5 @@ class Fournisseur extends Model
     public function sacs(){
         return $this->hasMany(Sac::class);
     }
+    protected $guarded = [];
 }
