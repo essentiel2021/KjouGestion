@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CooperativeRequest;
+use App\Models\Cooperative;
 use Illuminate\Http\Request;
 
 class CooperativeController extends Controller
@@ -23,7 +25,11 @@ class CooperativeController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouvelle cooperative',
+            'description' => $description,
+        ];
+        return view('cooperatives.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class CooperativeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CooperativeRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Cooperative::create($validatedData);
+        $success = 'cooperative ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

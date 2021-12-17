@@ -19,4 +19,5 @@ class Cooperative extends Model
     public function lots(){
         return $this->hasMany(Lot::class);
     }
+    protected $guarded = [];
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VehiculeRequest;
 use Illuminate\Http\Request;
 
 class VehiculeController extends Controller
@@ -23,7 +24,7 @@ class VehiculeController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -32,7 +33,7 @@ class VehiculeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehiculeRequest $request)
     {
         //
     }

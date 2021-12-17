@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SiteRequest;
+use App\Models\Site;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -23,7 +25,11 @@ class SiteController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouveau site',
+            'description' => $description,
+        ];
+        return view('sites.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class SiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SiteRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Site::create($validatedData);
+        $success = 'site ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

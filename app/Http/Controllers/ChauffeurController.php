@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChauffeurRequest;
+use App\Models\Chauffeur;
 use Illuminate\Http\Request;
 
 class ChauffeurController extends Controller
@@ -23,7 +25,11 @@ class ChauffeurController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouveau chauffeur',
+            'description' => $description,
+        ];
+        return view('chauffeurs.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class ChauffeurController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ChauffeurRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Chauffeur::create($validatedData);
+        $success = 'fournisseur ajouté';
+        return back()->withSuccess($success);
     }
 
     /**
