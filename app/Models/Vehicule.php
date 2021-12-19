@@ -11,4 +11,5 @@ class Vehicule extends Model
     public function lots(){
         return $this->hasMany(Lot::class);
     }
+    protected $fillable = ['matricule'];
 }

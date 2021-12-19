@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VehiculeRequest extends FormRequest
+class AnalyseDechargementRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,14 @@ class VehiculeRequest extends FormRequest
     public function rules()
     {
         return [
-            'matricule' => ['required','unique:vehicules'],
+            'analyseur' => ['required'],
+            'th_amande' => ['required'],
+            'th_cajou' => ['required'],
+            'outturn' => ['required'],
+            'grainage' => ['required'],
+            'huileux' => ['required'],
+            'pique' => ['required'],
+            'prix' => ['required']
         ];
     }
 }

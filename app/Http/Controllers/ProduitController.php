@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProduitRequest;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -23,7 +25,11 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouveau produit',
+            'description' => $description,
+        ];
+        return view('produits.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class ProduitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProduitRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Produit::create($validatedData);
+        $success = 'produit ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

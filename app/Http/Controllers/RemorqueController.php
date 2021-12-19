@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RemorqueRequest;
+use App\Models\Remorque;
 use Illuminate\Http\Request;
 
 class RemorqueController extends Controller
@@ -23,7 +25,11 @@ class RemorqueController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter une nouvelle remorque',
+            'description' => $description,
+        ];
+        return view('remorques.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class RemorqueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RemorqueRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Remorque::create($validatedData);
+        $success = 'remorque ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

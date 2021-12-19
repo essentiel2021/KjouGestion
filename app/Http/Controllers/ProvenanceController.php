@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProvenanceRequest;
+use App\Models\Provenance;
 use Illuminate\Http\Request;
 
 class ProvenanceController extends Controller
@@ -23,7 +25,11 @@ class ProvenanceController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter une nouvelle provenance',
+            'description' => $description,
+        ];
+        return view('provenances.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class ProvenanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProvenanceRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Provenance::create($validatedData);
+        $success = 'provenance ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

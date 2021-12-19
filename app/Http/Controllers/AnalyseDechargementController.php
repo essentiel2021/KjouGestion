@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AnalyseDechargementRequest;
+use App\Models\AnalyseDechargement;
 use Illuminate\Http\Request;
 
 class AnalyseDechargementController extends Controller
@@ -23,7 +25,11 @@ class AnalyseDechargementController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter une nouvelle analyse de dechargement',
+            'description' => $description,
+        ];
+        return view('analysedechargements.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class AnalyseDechargementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnalyseDechargementRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        AnalyseDechargement::create($validatedData);
+        $success = 'analyse de dechargement ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\VehiculeRequest;
+use App\Models\Vehicule;
 use Illuminate\Http\Request;
 
 class VehiculeController extends Controller
@@ -24,7 +25,11 @@ class VehiculeController extends Controller
      */
     public function create()
     {
-        
+        $data = [
+            'title' => $description = 'Ajouter un nouveau vehicule',
+            'description' => $description,
+        ];
+        return view('vehicules.create',$data);
     }
 
     /**
@@ -35,7 +40,10 @@ class VehiculeController extends Controller
      */
     public function store(VehiculeRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Vehicule::create($validatedData);
+        $success = 'site ajouté';
+        return back()->withSuccess($success);
     }
 
     /**
