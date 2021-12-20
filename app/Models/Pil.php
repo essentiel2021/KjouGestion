@@ -13,10 +13,11 @@ class Pil extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('nom')
+            ->generateSlugsFrom('libelle')
             ->saveSlugsTo('slug');
     }
     public function lots(){
         return $this->hasMany(Lot::class);
     }
+    protected $guarded = ['slug'];
 }

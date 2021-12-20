@@ -1,18 +1,19 @@
 <?php
 
 use App\Http\Controllers\AnalyseDechargementController;
+use App\Http\Controllers\AnalyseTransfertController;
 use App\Http\Controllers\CampagneController;
 use App\Http\Controllers\ChauffeurController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CooperativeController;
 use App\Http\Controllers\FournisseursController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PilController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProvenanceController;
 use App\Http\Controllers\RemorqueController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\VehiculeController;
-use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,9 @@ Route::resources([
     'remorques' => RemorqueController::class,
     'provenances' => ProvenanceController::class,
     'produits' => ProduitController::class,
-    'analysedechargements' => AnalyseDechargementController::class
+    'analysedechargements' => AnalyseDechargementController::class,
+    'analysetransferts' => AnalyseTransfertController::class,
+    'pils' => PilController::class
 ]);
 
 // Route::get('/', function () {

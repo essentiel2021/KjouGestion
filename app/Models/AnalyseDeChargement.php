@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AnalyseDechargement extends Model
 {
     use HasFactory;
+    public $table = "analysedechargements";
     public function lots(){
         return $this->hasMany(Lot::class);
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PilRequest;
+use App\Models\Pil;
 use Illuminate\Http\Request;
 
 class PilController extends Controller
@@ -23,7 +25,11 @@ class PilController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouveau pil',
+            'description' => $description,
+        ];
+        return view('pils.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class PilController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PilRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Pil::create($validatedData);
+        $success = 'pil ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

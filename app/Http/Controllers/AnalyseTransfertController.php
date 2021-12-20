@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\analyseTransfertRequest;
+use App\Models\AnalyseTransfert;
 use Illuminate\Http\Request;
 
 class AnalyseTransfertController extends Controller
@@ -23,7 +25,11 @@ class AnalyseTransfertController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter une nouvelle analyse de transfert',
+            'description' => $description,
+        ];
+        return view('analysetransferts.create',$data);
     }
 
     /**
@@ -32,9 +38,12 @@ class AnalyseTransfertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(analyseTransfertRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        AnalyseTransfert::create($validatedData);
+        $success = 'analyse de transfert ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

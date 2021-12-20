@@ -42,7 +42,7 @@ class VehiculeController extends Controller
     {
         $validatedData = $request->validated();
         Vehicule::create($validatedData);
-        $success = 'site ajouté';
+        $success = 'vehicule ajouté';
         return back()->withSuccess($success);
     }
 
