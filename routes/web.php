@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CooperativeController;
 use App\Http\Controllers\FournisseursController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LotController;
 use App\Http\Controllers\PilController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProvenanceController;
@@ -39,7 +40,8 @@ Route::resources([
     'produits' => ProduitController::class,
     'analysedechargements' => AnalyseDechargementController::class,
     'analysetransferts' => AnalyseTransfertController::class,
-    'pils' => PilController::class
+    'pils' => PilController::class,
+    'lots' => LotController::class,
 ]);
 
 // Route::get('/', function () {

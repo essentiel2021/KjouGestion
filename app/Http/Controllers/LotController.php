@@ -2,6 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnalyseDechargement;
+use App\Models\AnalyseTransfert;
+use App\Models\Campagne;
+use App\Models\Chauffeur;
+use App\Models\Client;
+use App\Models\Cooperative;
+use App\Models\Fournisseur;
+use App\Models\Pil;
+use App\Models\Produit;
+use App\Models\Provenance;
+use App\Models\Site;
+use App\Models\Transfert;
+use App\Models\Vehicule;
 use Illuminate\Http\Request;
 
 class LotController extends Controller
@@ -23,7 +36,37 @@ class LotController extends Controller
      */
     public function create()
     {
-        //
+        $campagnes = Campagne::get();
+        $cooperatives = Cooperative::get();
+        $forunisseurs = Fournisseur::get();
+        $clients = Client::get();
+        $vehicules = Vehicule::get();
+        $chauffeurs = Chauffeur::get();
+        $sites = Site::get();
+        $produits = Produit::get();
+        $provenances = Provenance::get();
+        $transferts = Transfert::get();
+        $analysedechargements = AnalyseDechargement::get();
+        $analysetransferts = AnalyseTransfert::get();
+        $pils = Pil::get();
+        $data = [
+            'title' => $description = 'Ajouter un nouveau lot',
+            'description' => $description,
+            'campagnes' => $campagnes,
+            'cooperatives' => $cooperatives,
+            'fournisseurs' => $forunisseurs,
+            'clients' => $clients,
+            'vehicules' => $vehicules,
+            'chauffeurs' => $chauffeurs,
+            'sites' => $sites,
+            'produits' => $produits,
+            'provenances' => $provenances,
+            'transferts' => $transferts,
+            'analysedechargements' =>$analysedechargements,
+            'analysetransferts' =>$analysetransferts,
+            'pils' => $pils
+        ];
+        return view('lots.create',$data);
     }
 
     /**
