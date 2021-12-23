@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    protected $perPage = 5; 
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +17,11 @@ class ClientController extends Controller
      */
     public function index()
     {
+        $clients = Client::orderByDesc('id')->paginate($this->perPage);
         $data = [
-            'title' => $description = 'Liste des clients',
-            'description' => $description,
+            'title' => 'Liste des clients',
+            'description' => 'Retrouvez tous les clients de '. config('app.name'),
+            'clients' => $clients
         ];
         return view('clients.index',$data);
     }

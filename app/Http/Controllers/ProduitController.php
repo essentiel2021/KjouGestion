@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        $produits = Produit::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des produits',
+            'description' => 'Retrouvez tous les produits de '. config('app.name'),
+            'produits' => $produits
+        ];
+        return view('produits.index',$data);
     }
 
     /**

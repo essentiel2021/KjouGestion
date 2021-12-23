@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ProvenanceController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class ProvenanceController extends Controller
      */
     public function index()
     {
-        //
+        $provenances = Provenance::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des provenances',
+            'description' => 'Retrouvez toutes les provenances de '. config('app.name'),
+            'provenances' => $provenances
+        ];
+        return view('provenances.index',$data);
     }
 
     /**

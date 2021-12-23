@@ -11,20 +11,20 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nom</th>
+                                <th>Libelle</th>
                                 <th>Operations</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Nom</th>
+                                <th>Libelle</th>
                                 <th>Operations</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($clients as $client)
+                            @foreach ($produits as $produit)
                                 <tr>
-                                    <td>{{ $client->nom }}</td>
+                                    <td>{{ $produit->libelle }}</td>
                                     <td>
                                         <a href="" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
@@ -38,12 +38,10 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        {{ $clients->links() }}
+                        {{ $produits->links() }}
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-    
 @endsection

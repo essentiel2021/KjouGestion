@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class CooperativeController extends Controller
 {
+    protected $perPage = 5; 
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class CooperativeController extends Controller
      */
     public function index()
     {
-        //
+        $cooperatives = Cooperative::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des coopératives',
+            'description' => 'Retrouvez toutes les cooperatives de '. config('app.name'),
+            'cooperatives' => $cooperatives
+        ];
+        return view('cooperatives.index',$data);
     }
 
     /**
