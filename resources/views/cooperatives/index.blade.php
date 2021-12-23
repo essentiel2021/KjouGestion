@@ -12,19 +12,25 @@
                         <thead>
                             <tr>
                                 <th>Nom</th>
+                                <th>Sigle</th>
+                                <th>Contact</th>
                                 <th>Operations</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Nom</th>
+                                <th>Sigle</th>
+                                <th>Contact</th>
                                 <th>Operations</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($clients as $client)
+                            @foreach ($cooperatives as $cooperative)
                                 <tr>
-                                    <td>{{ $client->nom }}</td>
+                                    <td>{{ $cooperative->nom }}</td>
+                                    <td>{{ $cooperative->sigle }}</td>
+                                    <td>{{ $cooperative->contact }}</td>
                                     <td>
                                         <a href="" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
@@ -38,7 +44,7 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        {{ $clients->links() }}
+                        {{ $cooperatives->links() }}
                     </div>
                 </div>
             </div>

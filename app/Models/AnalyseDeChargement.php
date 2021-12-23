@@ -12,4 +12,5 @@ class AnalyseDechargement extends Model
         return $this->hasMany(Lot::class);
     }
     protected $guarded = ['etat'];
+    protected $table='analyse_dechargements';
 }

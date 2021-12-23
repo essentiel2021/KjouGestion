@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class RemorqueController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class RemorqueController extends Controller
      */
     public function index()
     {
-        //
+        $remorques = Remorque::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des remorques',
+            'description' => 'Retrouvez toutes les remorques de '. config('app.name'),
+            'remorques' => $remorques
+        ];
+        return view('remorques.index',$data);
     }
 
     /**

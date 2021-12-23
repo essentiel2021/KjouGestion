@@ -41,6 +41,7 @@ class AnalyseDechargementController extends Controller
     public function store(AnalyseDechargementRequest $request)
     {
         $validatedData = $request->validated();
+        //AnalyseDechargement::create($validatedData);
         AnalyseDechargement::create($validatedData);
         $success = 'analyse de dechargement ajouté';
         return back()->withSuccess($success);

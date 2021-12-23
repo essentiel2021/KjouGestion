@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class FournisseursController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class FournisseursController extends Controller
      */
     public function index()
     {
-        //
+        $fournisseurs = Fournisseur::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des fournisseurs',
+            'description' => 'Retrouvez toutes les fournisseurs de '. config('app.name'),
+            'fournisseurs' => $fournisseurs
+        ];
+        return view('fournisseurs.index',$data);
     }
 
     /**
