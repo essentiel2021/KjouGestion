@@ -16,6 +16,10 @@ class Produit extends Model
             ->generateSlugsFrom('libelle')
             ->saveSlugsTo('slug');
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function lots(){
         return $this->hasMany(Lot::class);
     }

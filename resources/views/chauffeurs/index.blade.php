@@ -11,22 +11,25 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nom</th>
+                                <th>Nom du chauffeur</th>
+                                <th>Numero du permis</th>
                                 <th>Operations</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Nom</th>
+                                <th>Nom du chauffeur</th>
+                                <th>Numero du permis</th>
                                 <th>Operations</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($clients as $client)
+                            @foreach ($chauffeurs as $chauffeur)
                                 <tr>
-                                    <td>{{ $client->nom }}</td>
+                                    <td>{{ $chauffeur->nom }}</td>
+                                    <td>{{ $chauffeur->numeroPermis }}</td>
                                     <td>
-                                        <a href="{{ route('clients.edit',['client' => $client->slug]) }}" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('chauffeurs.edit',['chauffeur' => $chauffeur->slug]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf
@@ -38,7 +41,7 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        {{ $clients->links() }}
+                        {{ $chauffeurs->links() }}
                     </div>
                 </div>
             </div>

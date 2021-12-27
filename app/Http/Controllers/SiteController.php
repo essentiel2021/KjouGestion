@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class SiteController extends Controller
      */
     public function index()
     {
-        //
+        $sites = Site::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des sites',
+            'description' => 'Retrouvez toutes les sites de '. config('app.name'),
+            'sites' => $sites
+        ];
+        return view('sites.index',$data);
     }
 
     /**
@@ -63,9 +70,9 @@ class SiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Site $site)
     {
-        //
+        
     }
 
     /**

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class AnalyseTransfertController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class AnalyseTransfertController extends Controller
      */
     public function index()
     {
-        //
+        $analysestransferts = AnalyseTransfert::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des analyses de transferts',
+            'description' => 'Retrouvez toutes les analyses de transferts de '. config('app.name'),
+            'analysestransferts' => $analysestransferts
+        ];
+        return view('analyseTransferts.index',$data);
     }
 
     /**

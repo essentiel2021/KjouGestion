@@ -32,7 +32,7 @@
                                     <td>{{ $fournisseur->sexe }}</td>
                                     <td>{{ $fournisseur->contact }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('fournisseurs.edit',['fournisseur' => $fournisseur]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf

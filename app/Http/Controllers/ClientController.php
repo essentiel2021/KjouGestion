@@ -87,9 +87,15 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour du client ' 
+            .$client->nom,
+            'description' => $description,
+            'client' => $client
+        ];
+        return view('clients.edit',$data);
     }
 
     /**

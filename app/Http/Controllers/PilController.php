@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class PilController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class PilController extends Controller
      */
     public function index()
     {
-        //
+        $pils = Pil::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des pils',
+            'description' => 'Retrouvez tous les pils de '. config('app.name'),
+            'pils' => $pils
+        ];
+        return view('pils.index',$data);
     }
 
     /**
@@ -63,9 +70,16 @@ class PilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pil $pil)
     {
-        //
+        dd($pil);
+        $data = [
+            'title' => $description = 'Mise à jour du pil ' 
+            .$pil->libelle,
+            'description' => $description,
+            'pil' => $pil
+        ];
+        return view('pils.edit',$data);  
     }
 
     /**

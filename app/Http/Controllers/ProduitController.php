@@ -70,9 +70,16 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Produit $produit)
     {
-        //
+        dd($produit);
+        $data = [
+            'title' => $description = 'Mise à jour du produit ' 
+            .$produit->libelle,
+            'description' => $description,
+            'pil' => $produit
+        ];
+        return view('produits.edit',$data);  
     }
 
     /**

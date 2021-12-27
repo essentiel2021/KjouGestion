@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ChauffeurController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class ChauffeurController extends Controller
      */
     public function index()
     {
-        //
+        $chauffeurs = Chauffeur::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des chauffeurs',
+            'description' => 'Retrouvez tous les chauffeurs de '. config('app.name'),
+            'chauffeurs' => $chauffeurs
+        ];
+        return view('chauffeurs.index',$data);
     }
 
     /**
@@ -52,9 +59,9 @@ class ChauffeurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Chauffeur $chauffeur)
     {
-        //
+        
     }
 
     /**
@@ -63,9 +70,15 @@ class ChauffeurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Chauffeur $chauffeur)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour du chauffeur ' 
+            .$chauffeur->nom,
+            'description' => $description,
+            'chauffeur' => $chauffeur
+        ];
+        return view('chauffeurs.edit',$data);
     }
 
     /**

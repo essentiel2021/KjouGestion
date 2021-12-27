@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transfert;
 use Illuminate\Http\Request;
 
 class TransfertController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +15,13 @@ class TransfertController extends Controller
      */
     public function index()
     {
-        //
+        $transferts = Transfert::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des transferts',
+            'description' => 'Retrouvez tous les transferts '. config('app.name'),
+            'vehicules' => $transferts
+        ];
+        return view('transferts.index',$data);
     }
 
     /**

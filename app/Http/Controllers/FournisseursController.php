@@ -70,9 +70,16 @@ class FournisseursController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Fournisseur $fournisseur)
     {
-        //
+        dd($fournisseur);
+        $data = [
+            'title' => $description = 'Mise à jour du fournisseur ' 
+            .$fournisseur->nom,
+            'description' => $description,
+            'fournisseur' => $fournisseur
+        ];
+        return view('fournisseurs.edit',$data);
     }
 
     /**
