@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class AnalyseDechargementController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class AnalyseDechargementController extends Controller
      */
     public function index()
     {
-        //
+        $analysesdechargements = AnalyseDechargement::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des analyses de dechargements',
+            'description' => 'Retrouvez toutes les analyses de déchargements de '. config('app.name'),
+            'analysesdechargements' => $analysesdechargements
+        ];
+        return view('analyseDechargements.index',$data);
     }
 
     /**

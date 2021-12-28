@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 
 class LotController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +29,13 @@ class LotController extends Controller
      */
     public function index()
     {
-        //
+        $lots = Chauffeur::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des lots',
+            'description' => 'Retrouvez tous les lots de '. config('app.name'),
+            'lots' => $lots
+        ];
+        return view('lots.index',$data);
     }
 
     /**

@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 class Pil extends Model
 {
     use HasFactory,HasSlug;
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

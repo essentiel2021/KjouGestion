@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Models\Site;
 use App\Models\Client;
 use App\Models\Produit;
@@ -9,12 +10,16 @@ use App\Models\Vehicule;
 use App\Models\Chauffeur;
 use App\Models\Provenance;
 use App\Models\Fournisseur;
+=======
+use App\Models\Transfert;
+>>>>>>> 4a8e12d59f665e23dd565cfdb00caea3f1d6ae97
 use Illuminate\Http\Request;
 use App\Http\Requests\TransfertRequest;
 use App\Models\Transfert;
 
 class TransfertController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +27,13 @@ class TransfertController extends Controller
      */
     public function index()
     {
-        //
+        $transferts = Transfert::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des transferts',
+            'description' => 'Retrouvez tous les transferts '. config('app.name'),
+            'vehicules' => $transferts
+        ];
+        return view('transferts.index',$data);
     }
 
     /**

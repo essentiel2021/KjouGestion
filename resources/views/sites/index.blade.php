@@ -11,22 +11,22 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nom</th>
+                                <th>Libelle</th>
                                 <th>Operations</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Nom</th>
+                                <th>Libelle</th>
                                 <th>Operations</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($clients as $client)
+                            @foreach ($sites as $site)
                                 <tr>
-                                    <td>{{ $client->nom }}</td>
+                                    <td>{{ $site->libelle }}</td>
                                     <td>
-                                        <a href="{{ route('clients.edit',['client' => $client->slug]) }}" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf
@@ -38,7 +38,7 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        {{ $clients->links() }}
+                        {{ $sites->links() }}
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class VehiculeController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,13 @@ class VehiculeController extends Controller
      */
     public function index()
     {
-        //
+        $vehicules = Vehicule::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des vehicules',
+            'description' => 'Retrouvez tous les vehicules '. config('app.name'),
+            'vehicules' => $vehicules
+        ];
+        return view('vehicules.index',$data);
     }
 
     /**

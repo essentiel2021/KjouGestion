@@ -70,9 +70,16 @@ class CooperativeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cooperative $cooperative)
     {
-        //
+        dd($cooperative);
+        $data = [
+            'title' => $description = 'Mise à jour de la cooperative' 
+            .$cooperative->nom,
+            'description' => $description,
+            'cooperative' => $cooperative
+        ];
+        return view('cooperatives.edit',$data);
     }
 
     /**

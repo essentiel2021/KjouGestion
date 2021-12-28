@@ -70,9 +70,16 @@ class RemorqueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Remorque $remorque)
     {
-        //
+        dd($remorque);
+        $data = [
+            'title' => $description = 'Mise à jour du remorque ' 
+            .$remorque->libelle,
+            'description' => $description,
+            'remorque' => $remorque
+        ];
+        return view('remorques.edit',$data);  
     }
 
     /**

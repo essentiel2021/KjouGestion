@@ -32,7 +32,7 @@
                                     <td>{{ $cooperative->sigle }}</td>
                                     <td>{{ $cooperative->contact }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('cooperatives.edit',['cooperative' => $cooperative->slug]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf
