@@ -14,6 +14,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProvenanceController;
 use App\Http\Controllers\RemorqueController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\TransfertController;
 use App\Http\Controllers\VehiculeController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,7 @@ Route::resources([
     'analysetransferts' => AnalyseTransfertController::class,
     'pils' => PilController::class,
     'lots' => LotController::class,
+    'transferts' => TransfertController::class
 ]);
 
 // Route::get('/', function () {

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CampagneRequest;
+use App\Models\Campagne;
 
 class CampagneController extends Controller
 {
@@ -13,7 +15,7 @@ class CampagneController extends Controller
      */
     public function index()
     {
-        //
+    
     }
 
     /**
@@ -23,7 +25,11 @@ class CampagneController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => $description = 'Ajouter un nouvelle campagne',
+            'description' => $description,
+        ];
+        return view('campagnes.create',$data);
     }
 
     /**
@@ -32,9 +38,13 @@ class CampagneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CampagneRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Campagne::create($validatedData);
+
+        $success = 'campagne ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

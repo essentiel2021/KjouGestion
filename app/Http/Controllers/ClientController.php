@@ -50,22 +50,6 @@ class ClientController extends Controller
     {
         $validatedData = $request->validated();
         Client::create($validatedData);
-        // $client = Client::create( request()->validate([
-        //     'nom' => ['required']
-        // ]));
-
-        // request()->validate([
-        //     'nom' => ['required']
-        // ]);
-
-        // $client = new Client();
-        // $client->nom = request('nom');
-        // $client->save();
-
-        // $client = Client::create([
-        //     'nom' => request('nom')
-        // ]);
-
         $success = 'client ajouté';
         return back()->withSuccess($success);
     }

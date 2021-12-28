@@ -34,14 +34,14 @@
                     </div>
                     <div class="form-group">
                         <label for="annee_encours">Année en cours</label>
-                        <input type="text" name="annee_encours" class="form-control @error('annee_encours') is-invalid @enderror" value="{{ old('annee_encours') }}">
+                        <input type="date" name="annee_encours" class="form-control @error('annee_encours') is-invalid @enderror" value="{{ old('annee_encours') }}">
                         @error('annee_encours')
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="annee_suivante">Année suivante</label>
-                        <input type="text" name="annee_suivante" class="form-control @error('annee_suivante') is-invalid @enderror" value="{{ old('annee_suivante') }}">
+                        <input type="date" name="annee_suivante" class="form-control @error('annee_suivante') is-invalid @enderror" value="{{ old('annee_suivante') }}">
                         @error('annee_suivante')
                             <div class="error">{{ $message }}</div>
                         @enderror

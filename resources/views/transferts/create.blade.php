@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                 
-                <form action="{{ route('lots.store') }}" method="post">
+                <form action="{{ route('transferts.store') }}" method="post">
 
                     @csrf
                     <div class="row">
@@ -100,30 +100,6 @@
                     <div class="row">
 
                         <div class="form-group col-lg-4">
-                            <label for="campagne_id">Campagne</label>
-                            <select class="form-control" name="campagne_id">
-                                <option value=""></option>
-                                @foreach ($campagnes as $campagne)
-                                    <option value="{{$campagne->id}}" @if(old('campagne_id') == $campagne->id) selected @endif>{{$campagne->libelle}}</option>
-                                @endforeach
-                            </select>
-                            @error('campagne_id')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group col-lg-4">
-                            <label for="cooperative_id">Cooperative</label>
-                            <select class="form-control" name="cooperative_id">
-                                <option value=""></option>
-                                @foreach ($cooperatives as $cooperative)
-                                    <option value="{{$cooperative->id}}" @if(old('cooperative_id') == $cooperative->id) selected @endif>{{$cooperative->nom}}</option>
-                                @endforeach
-                            </select>
-                            @error('cooperative_id')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group col-lg-4">
                             <label for="chauffeur_id">Chauffeurs</label>
                             <select class="form-control" name="chauffeur_id">
                                 <option value=""></option>
@@ -134,49 +110,22 @@
                             @error('chauffeur_id')
                                 <div class="error">{{ $message }}</div>
                             @enderror
-                        </div>   
-
-                    </div>
-
-                    <div class="row">
-
+                        </div>
+                       
                         <div class="form-group col-lg-4">
-                            <label for="analysedechargement_id">Analyse de dechargement</label>
-                            <select class="form-control" name="analysedechargement_id">
-                                <option value=""></option>
-                                @foreach ($analysedechargements as $analysedechargement)
-                                    <option value="{{$analysedechargement->id}}" @if(old('analysedechargement_id') == $analysedechargement->id) selected @endif>{{$analysedechargement->libelle}}</option>
-                                @endforeach
-                            </select>
-                            @error('analysedechargement_id')
+                            <label for="poids_sortie">Poids sortie</label>
+                            <input type="number" name="poids_sortie" class="form-control @error('poids_sortie') is-invalid @enderror" value="{{ old('poids_sortie') }}">
+                            @error('poids_sortie')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="cooperative_id">Analyse de transfert</label>
-                            <select class="form-control" name="cooperative_id">
-                                <option value=""></option>
-                                @foreach ($cooperatives as $cooperative)
-                                    <option value="{{$cooperative->id}}" @if(old('cooperative_id') == $cooperative->id) selected @endif>{{$cooperative->nom}}</option>
-                                @endforeach
-                            </select>
-                            @error('cooperative_id')
+                            <label for="poids_usine">Poids usine</label>
+                            <input type="number" name="poids_usine" class="form-control @error('poids_usine') is-invalid @enderror" value="{{ old('poids_usine') }}">
+                            @error('poids_usine')
                                 <div class="error">{{ $message }}</div>
                             @enderror
-                        </div>
-                        <div class="form-group col-lg-4">
-                            <label for="chauffeur_id">Chauffeurs</label>
-                            <select class="form-control" name="chauffeur_id">
-                                <option value=""></option>
-                                @foreach ($chauffeurs as $chauffeur)
-                                    <option value="{{$chauffeur->id}}" @if(old('chauffeur_id') == $chauffeur->id) selected @endif>{{$chauffeur->nom}}</option>
-                                @endforeach
-                            </select>
-                            @error('chauffeur_id')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>   
-
+                        </div>              
                     </div>
                    
                     <button type="submit" class="btn btn-primary">Ajouter</button>

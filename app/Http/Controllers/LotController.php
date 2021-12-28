@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LotRequest;
 use App\Models\AnalyseDechargement;
 use App\Models\AnalyseTransfert;
 use App\Models\Campagne;
@@ -9,6 +10,7 @@ use App\Models\Chauffeur;
 use App\Models\Client;
 use App\Models\Cooperative;
 use App\Models\Fournisseur;
+use App\Models\Lot;
 use App\Models\Pil;
 use App\Models\Produit;
 use App\Models\Provenance;
@@ -75,9 +77,12 @@ class LotController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LotRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        Lot::create($validatedData);
+        $success = 'lot ajouté';
+        return back()->withSuccess($success);
     }
 
     /**

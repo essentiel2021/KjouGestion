@@ -13,7 +13,7 @@ class CampagneRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class CampagneRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'libelle' => ['required'],
+            'annee_encours' => ['required'],
+            'annee_suivante' => ['required'],
         ];
     }
 }
