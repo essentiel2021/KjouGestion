@@ -165,14 +165,14 @@
                             @enderror
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="chauffeur_id">Chauffeurs</label>
-                            <select class="form-control" name="chauffeur_id">
+                            <label for="transfert_id">Transfert</label>
+                            <select class="form-control" name="transfert_id">
                                 <option value=""></option>
-                                @foreach ($chauffeurs as $chauffeur)
-                                    <option value="{{$chauffeur->id}}" @if(old('chauffeur_id') == $chauffeur->id) selected @endif>{{$chauffeur->nom}}</option>
+                                @foreach ($transferts as $transfert)
+                                    <option value="{{$transfert->id}}" @if(old('transfert_id') == $transfert->id) selected @endif>{{$transfert->client->id}}</option>
                                 @endforeach
                             </select>
-                            @error('chauffeur_id')
+                            @error('transfert_id')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>   
