@@ -2,15 +2,6 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use App\Models\Site;
-use App\Models\Client;
-use App\Models\Produit;
-use App\Models\Vehicule;
-use App\Models\Chauffeur;
-use App\Models\Provenance;
-use App\Models\Fournisseur;
-=======
 use App\Models\Transfert;
 >>>>>>> 4a8e12d59f665e23dd565cfdb00caea3f1d6ae97
 use Illuminate\Http\Request;
