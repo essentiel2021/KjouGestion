@@ -24,6 +24,7 @@ class TransfertRequest extends FormRequest
     public function rules()
     {
         return [
+            'libelle' => ['required','unique:transferts,libelle'],
             'produit_id' =>['required','exists:produits,id'],
             'client_id' =>['required','exists:clients,id'],
             'fournisseur_id' =>['required','exists:fournisseurs,id'],
