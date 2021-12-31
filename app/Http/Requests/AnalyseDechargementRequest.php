@@ -25,6 +25,7 @@ class AnalyseDechargementRequest extends FormRequest
     {
         return [
             'analyseur' => ['required','unique:analysedechargements,analyseur'],
+            'libelle' => ['required','unique:analysedechargements,analyseur'],
             'th_amande' => ['required'],
             'th_cajou' => ['required'],
             'outturn' => ['required'],

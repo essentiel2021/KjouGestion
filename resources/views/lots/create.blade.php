@@ -145,7 +145,7 @@
                             <select class="form-control" name="analysedechargement_id">
                                 <option value=""></option>
                                 @foreach ($analysedechargements as $analysedechargement)
-                                    <option value="{{$analysedechargement->id}}" @if(old('analysedechargement_id') == $analysedechargement->id) selected @endif>{{$analysedechargement->libelle}}</option>
+                                    <option value="{{$analysedechargement->id}}" @if(old('analysedechargement_id') == $analysedechargement->libelle) selected @endif>{{$analysedechargement->libelle}}</option>
                                 @endforeach
                             </select>
                             @error('analysedechargement_id')
@@ -153,14 +153,14 @@
                             @enderror
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="cooperative_id">Analyse de transfert</label>
-                            <select class="form-control" name="cooperative_id">
+                            <label for="analysetransfert_id">Analyse de transfert</label>
+                            <select class="form-control" name="analysetransfert_id">
                                 <option value=""></option>
-                                @foreach ($cooperatives as $cooperative)
-                                    <option value="{{$cooperative->id}}" @if(old('cooperative_id') == $cooperative->id) selected @endif>{{$cooperative->nom}}</option>
+                                @foreach ($analysetransferts as $analysetransfert)
+                                    <option value="{{$analysetransfert->id}}" @if(old('analysetransfert_id') == $analysetransfert->id) selected @endif>{{$analysetransfert->libelle}}</option>
                                 @endforeach
                             </select>
-                            @error('cooperative_id')
+                            @error('analysetransfert_id')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
@@ -169,7 +169,7 @@
                             <select class="form-control" name="transfert_id">
                                 <option value=""></option>
                                 @foreach ($transferts as $transfert)
-                                    <option value="{{$transfert->id}}" @if(old('transfert_id') == $transfert->id) selected @endif>{{$transfert->client->id}}</option>
+                                    <option value="{{$transfert->id}}" @if(old('transfert_id') == $transfert->id) selected @endif>{{$transfert->libelle}}</option>
                                 @endforeach
                             </select>
                             @error('transfert_id')
