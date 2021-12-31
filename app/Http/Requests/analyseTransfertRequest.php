@@ -25,6 +25,7 @@ class analyseTransfertRequest extends FormRequest
     {
         return [
             'analyseur' => ['required','unique:analysetransferts,analyseur'],
+            'libelle' => ['required','unique:analysetransferts,libelle'],
             'th_amande' => ['required'],
             'th_cajou' => ['required'],
             'outturn' => ['required'],
