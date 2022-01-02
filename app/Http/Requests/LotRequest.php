@@ -24,7 +24,15 @@ class LotRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            'produit_id' =>['required','exists:produits,id'],
+            'client_id' =>['required','exists:clients,id'],
+            'fournisseur_id' =>['required','exists:fournisseurs,id'],
+            'chauffeur_id' => ['required','exists:chauffeurs,id'],
+            'vehicule_id' => ['required','exists:vehicules,id'],
+            'provenance_id' => ['required','exists:provenances,id'],
+            'site_id' => ['required','exists:sites,id'],
+            'analysedechargement_id' => ['required','exists:analysedechargements,id'],
+            'analysetransfert_id' => ['required','exists:analysetransferts,id'],
         ];
     }
 }

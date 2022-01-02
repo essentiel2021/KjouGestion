@@ -176,7 +176,20 @@
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>   
-
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label for="pil_id">pil</label>
+                            <select class="form-control" name="pil_id">
+                                <option value=""></option>
+                                @foreach ($pils as $pil)
+                                    <option value="{{$pil->id}}" @if(old('pil_id') == $pil->id) selected @endif>{{$pil->libelle}}</option>
+                                @endforeach
+                            </select>
+                            @error('pil_id')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>   
                     </div>
                    
                     <button type="submit" class="btn btn-primary">Ajouter</button>

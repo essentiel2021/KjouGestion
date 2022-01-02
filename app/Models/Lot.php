@@ -20,7 +20,7 @@ class Lot extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('nom')
+            ->generateSlugsFrom('libelle')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
     }
@@ -67,4 +67,5 @@ class Lot extends Model
     public function analyseTransfert(){
         return $this->belongsTo(AnalyseTransfert::class);
     }
+    protected $guarded = [];
 }

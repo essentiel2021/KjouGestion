@@ -86,8 +86,24 @@ class LotController extends Controller
      */
     public function store(LotRequest $request)
     {
-        $validatedData = $request->validated();
-        Lot::create($validatedData);
+        // $lot = new Lot();
+        // $lot->campagne_id = request('campagne_id');
+        // $lot->fournisseur_id = request('fournisseur_id');
+        // $lot->client_id = request('client_id');
+        // $lot->vehicule_id = request('vehicule_id');
+        // $lot->chauffeur_id = request('chauffeur_id');
+        // $lot->site_id = request('site_id');
+        // $lot->produit_id = request('produit_id');
+        // $lot->provenance_id = request('provenance_id');
+        // $lot->transfert_id = request('transfert_id');
+        // $lot->pil_id = request('pil_id');
+        // $lot->cooperative_id = request('cooperative_id');
+        // $lot->analysedechargement_id = request('analysedechargement_id');
+        // $lot->analysetransfert_id = request('analysetransfert_id');
+        // $lot->save();
+        $valitedData = $request->validated();
+        Lot::create($valitedData);
+        
         $success = 'lot ajouté';
         return back()->withSuccess($success);
     }
