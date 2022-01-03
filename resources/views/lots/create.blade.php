@@ -145,7 +145,7 @@
                             <select class="form-control" name="analysedechargement_id">
                                 <option value=""></option>
                                 @foreach ($analysedechargements as $analysedechargement)
-                                    <option value="{{$analysedechargement->id}}" @if(old('analysedechargement_id') == $analysedechargement->libelle) selected @endif>{{$analysedechargement->libelle}}</option>
+                                    <option value="{{$analysedechargement->id}}" @if(old('analysedechargement_id') == $analysedechargement->id) selected @endif>{{$analysedechargement->libelle}}</option>
                                 @endforeach
                             </select>
                             @error('analysedechargement_id')
@@ -178,7 +178,7 @@
                         </div>   
                     </div>
                     <div class="row">
-                        <div class="form-group col-lg-12">
+                        <div class="form-group col-lg-4">
                             <label for="pil_id">pil</label>
                             <select class="form-control" name="pil_id">
                                 <option value=""></option>
@@ -189,9 +189,131 @@
                             @error('pil_id')
                                 <div class="error">{{ $message }}</div>
                             @enderror
-                        </div>   
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="code">Code</label>
+                            <input type="text" name="code" class="form-control" value="{{ old('code') }}">
+                            @error('code')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="emballage">Emballage</label>
+                            <input type="text" name="emballage" class="form-control" value="{{ old('emballage') }}">
+                            @error('emballage')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>          
                     </div>
-                   
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label for="libelle">libelle</label>
+                            <input type="text" name="libelle" class="form-control" value="{{ old('libelle') }}">
+                            @error('libelle')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="poids_premier_pese">Premier pesé</label>
+                            <input type="number" name="poids_premier_pese" class="form-control" value="{{ old('poids_premier_pese') }}">
+                            @error('poids_premier_pese')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>  
+                        <div class="form-group col-lg-4">
+                            <label for="deuxieme_pese">Deuxième pesé</label>
+                            <input type="number" name="deuxieme_pese" class="form-control" value="{{ old('deuxieme_pese') }}">
+                            @error('deuxieme_pese')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label for="poid_net">Poids net</label>
+                            <input type="number" name="poid_net" class="form-control" value="{{ old('poid_net') }}">
+                            @error('poid_net')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="peseur">Peseur</label>
+                            <input type="text" name="peseur" class="form-control" value="{{ old('peseur') }}">
+                            @error('peseur')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>  
+                        <div class="form-group col-lg-4">
+                            <label for="sac_d">Sacs déchirés</label>
+                            <input type="number" name="sac_d" class="form-control" value="{{ old('sac_d') }}">
+                            @error('sac_d')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>  
+                    </div>
+                    <div class="row">
+                       
+                        <div class="form-group col-lg-4">
+                            <label for="sac_tare">Sacs tare</label>
+                            <input type="number" name="sac_tare" class="form-control" value="{{ old('sac_tare') }}">
+                            @error('sac_tare')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>  
+                        <div class="form-group col-lg-4">
+                            <label for="autre_tare">Autre tare</label>
+                            <input type="number" name="autre_tare" class="form-control" value="{{ old('autre_tare') }}">
+                            @error('autre_tare')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="sac_recond">Sacs recond</label>
+                            <input type="number" name="sac_recond" class="form-control" value="{{ old('sac_recond') }}">
+                            @error('sac_recond')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>               
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label for="sac_humide">Sacs humide</label>
+                            <input type="number" name="sac_humide" class="form-control" value="{{ old('sac_humide') }}">
+                            @error('sac_humide')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>    
+                        <div class="form-group col-lg-4">
+                            <label for="nbr_sac">Nombre de sac</label>
+                            <input type="number" name="nbr_sac" class="form-control" value="{{ old('nbr_sac') }}">
+                            @error('nbr_sac')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="date_premier_pese">Date pesé 1</label>
+                            <input type="datetime-local" name="date_premier_pese" class="form-control @error('date_premier_pese') is-invalid @enderror" value="{{ old('date_premier_pese') }}">
+                            @error('date_premier_pese')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>       
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="date_deuxieme_pese">Date pesé 2</label>
+                            <input type="datetime-local" name="date_deuxieme_pese" class="form-control @error('date_deuxieme_pese') is-invalid @enderror" value="{{ old('date_deuxieme_pese') }}">
+                            @error('date_deuxieme_pese')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div> 
+                        <div class="form-group col-lg-6">
+                            <label for="detail">Detail</label>
+                            <textarea class="form-control" name="detail" cols="30" rows="5" placeholder="Contenu du lot">{{ old('detail') }}</textarea>
+                            @error('detail')
+                              <div class="error">{{ $message }}</div>
+                            @enderror
+                          </div>  
+                    </div>
                     <button type="submit" class="btn btn-primary">Ajouter</button>
                 </form>
 
