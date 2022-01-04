@@ -221,18 +221,18 @@
                             @enderror
                         </div>  
                         <div class="form-group col-lg-4">
-                            <label for="deuxieme_pese">Deuxième pesé</label>
-                            <input type="number" name="deuxieme_pese" class="form-control" value="{{ old('deuxieme_pese') }}">
-                            @error('deuxieme_pese')
+                            <label for="poids_deuxieme_pese">Deuxième pesé</label>
+                            <input type="number" name="poids_deuxieme_pese" class="form-control" value="{{ old('poids_deuxieme_pese') }}">
+                            @error('poids_deuxieme_pese')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>  
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-4">
-                            <label for="poid_net">Poids net</label>
-                            <input type="number" name="poid_net" class="form-control" value="{{ old('poid_net') }}">
-                            @error('poid_net')
+                            <label for="poids_net">Poids net</label>
+                            <input type="number" name="poids_net" class="form-control" value="{{ old('poids_net') }}">
+                            @error('poids_net')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
@@ -244,9 +244,9 @@
                             @enderror
                         </div>  
                         <div class="form-group col-lg-4">
-                            <label for="sac_d">Sacs déchirés</label>
-                            <input type="number" name="sac_d" class="form-control" value="{{ old('sac_d') }}">
-                            @error('sac_d')
+                            <label for="sacs_dechire">Sacs déchirés</label>
+                            <input type="number" name="sacs_dechire" class="form-control" value="{{ old('sacs_dechire') }}">
+                            @error('sacs_dechire')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>  
@@ -254,9 +254,9 @@
                     <div class="row">
                        
                         <div class="form-group col-lg-4">
-                            <label for="sac_tare">Sacs tare</label>
-                            <input type="number" name="sac_tare" class="form-control" value="{{ old('sac_tare') }}">
-                            @error('sac_tare')
+                            <label for="tare_sacs">Sacs tare</label>
+                            <input type="number" name="tare_sacs" class="form-control" value="{{ old('tare_sacs') }}">
+                            @error('tare_sacs')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>  
@@ -268,25 +268,25 @@
                             @enderror
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="sac_recond">Sacs recond</label>
-                            <input type="number" name="sac_recond" class="form-control" value="{{ old('sac_recond') }}">
-                            @error('sac_recond')
+                            <label for="sacs_recond">Sacs recond</label>
+                            <input type="number" name="sacs_recond" class="form-control" value="{{ old('sacs_recond') }}">
+                            @error('sacs_recond')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>               
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-4">
-                            <label for="sac_humide">Sacs humide</label>
-                            <input type="number" name="sac_humide" class="form-control" value="{{ old('sac_humide') }}">
-                            @error('sac_humide')
+                            <label for="sacs_humide">Sacs humide</label>
+                            <input type="number" name="sacs_humide" class="form-control" value="{{ old('sacs_humide') }}">
+                            @error('sacs_humide')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>    
                         <div class="form-group col-lg-4">
-                            <label for="nbr_sac">Nombre de sac</label>
-                            <input type="number" name="nbr_sac" class="form-control" value="{{ old('nbr_sac') }}">
-                            @error('nbr_sac')
+                            <label for="nbre_sacs">Nombre de sac</label>
+                            <input type="number" name="nbre_sacs" class="form-control" value="{{ old('nbre_sacs') }}">
+                            @error('nbre_sacs')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>

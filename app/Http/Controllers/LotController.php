@@ -86,42 +86,9 @@ class LotController extends Controller
      */
     public function store(LotRequest $request)
     {
-        $lot = new Lot();
-        $lot->campagne_id = request('campagne_id');
-        $lot->fournisseur_id = request('fournisseur_id');
-        $lot->client_id = request('client_id');
-        $lot->vehicule_id = request('vehicule_id');
-        $lot->chauffeur_id = request('chauffeur_id');
-        $lot->site_id = request('site_id');
-        $lot->produit_id = request('produit_id');
-        $lot->provenance_id = request('provenance_id');
-        $lot->transfert_id = request('transfert_id');
-        $lot->pil_id = request('pil_id');
-        $lot->cooperative_id = request('cooperative_id');
-        $lot->analysedechargement_id = request('analysedechargement_id');
-        $lot->analysetransfert_id = request('analysetransfert_id');
-        $lot->code = request('code');
-        $lot->nbre_sacs = request('nbr_sac');
-        $lot->emballage = request('emballage');
-        $lot->poids_premier_pese = request('poids_premier_pese');
-        dump($lot->poids_premier_pese);
-        $lot->poids_deuxieme_pese = request('deuxieme_pese');
-        dd($lot->poids_deuxieme_pese);
-        $lot->poids_net = request('poid_net');
-        $lot->peseur = request('peseur');
-        $lot->sacs_dechire = request('sac_d');
-        $lot->tare_sacs = request('sac_tare');
-        $lot->autre_tare = request('autre_tare');
-        $lot->sacs_recond = request('sac_recond');
-        $lot->sacs_humide = request('sac_humide');
-        $lot->detail = request('detail');
-        $lot->libelle = request('libelle');
-        $lot->date_premier_pese = request('date_premier_pese');
-        $lot->date_deuxieme_pese = request('date_deuxieme_pese');
-        $lot->save();
-        // $valitedData = $request->validated();
-        // Lot::create($valitedData);
-        
+        $valitedData = $request->validated();
+        Lot::create($valitedData);
+   
         $success = 'lot ajouté';
         return back()->withSuccess($success);
     }
