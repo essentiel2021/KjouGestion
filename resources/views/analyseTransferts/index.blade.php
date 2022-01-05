@@ -47,7 +47,7 @@
                                     <td>{{ $analysestransfert->pique }}</td>
                                     <td>{{ $analysestransfert->prix }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('analysetransferts.edit', ['analysetransfert' => $analysestransfert->id]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf

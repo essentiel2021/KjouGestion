@@ -29,7 +29,7 @@ class TransfertController extends Controller
         $data = [
             'title' => 'Liste des transferts',
             'description' => 'Retrouvez tous les transferts '. config('app.name'),
-            'vehicules' => $transferts
+            'transferts' => $transferts
         ];
         return view('transferts.index',$data);
     }

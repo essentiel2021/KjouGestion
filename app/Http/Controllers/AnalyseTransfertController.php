@@ -70,9 +70,15 @@ class AnalyseTransfertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(AnalyseTransfert $analysestransfert)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour de l\'analyse de transfert ' 
+            .$analysestransfert->analyseur,
+            'description' => $description,
+            'client' => $analysestransfert
+        ];
+        return view('analyseTransferts.edit',$data);
     }
 
     /**

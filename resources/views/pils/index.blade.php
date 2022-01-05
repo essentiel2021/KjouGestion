@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{ $pil->libelle }}</td>
                                     <td>
-                                        <a href="{{ route('pils.edit',['pil' => $pil->libelle]) }}" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('pils.edit',['pil' => $pil->slug]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf

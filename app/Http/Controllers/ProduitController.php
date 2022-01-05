@@ -72,12 +72,11 @@ class ProduitController extends Controller
      */
     public function edit(Produit $produit)
     {
-        dd($produit);
         $data = [
             'title' => $description = 'Mise à jour du produit ' 
             .$produit->libelle,
             'description' => $description,
-            'pil' => $produit
+            'produit' => $produit
         ];
         return view('produits.edit',$data);  
     }

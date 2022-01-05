@@ -36,18 +36,18 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($analysesdechargements as $analysesdechargement)
+                            @foreach ($analysesDechargements as $analysesDechargement)
                                 <tr>
-                                    <td>{{ $analysesdechargement->analyseur }}</td>
-                                    <td>{{ $analysesdechargement->th_amande }}</td>
-                                    <td>{{ $analysesdechargement->th_cajou }}</td>
-                                    <td>{{ $analysesdechargement->outturn }}</td>
-                                    <td>{{ $analysesdechargement->grainage }}</td>
-                                    <td>{{ $analysesdechargement->huileux }}</td>
-                                    <td>{{ $analysesdechargement->pique }}</td>
-                                    <td>{{ $analysesdechargement->prix }}</td>
+                                    <td>{{ $analysesDechargement->analyseur }}</td>
+                                    <td>{{ $analysesDechargement->th_amande }}</td>
+                                    <td>{{ $analysesDechargement->th_cajou }}</td>
+                                    <td>{{ $analysesDechargement->outturn }}</td>
+                                    <td>{{ $analysesDechargement->grainage }}</td>
+                                    <td>{{ $analysesDechargement->huileux }}</td>
+                                    <td>{{ $analysesDechargement->pique }}</td>
+                                    <td>{{ $analysesDechargement->prix }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('analysedechargements.edit', ['analysedechargement' => $analysesDechargement->id]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf
@@ -59,7 +59,7 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        {{ $analysesdechargements->links() }}
+                        {{ $analysesDechargements->links() }}
                     </div>
                 </div>
             </div>

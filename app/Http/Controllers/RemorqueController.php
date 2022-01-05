@@ -72,7 +72,6 @@ class RemorqueController extends Controller
      */
     public function edit(Remorque $remorque)
     {
-        dd($remorque);
         $data = [
             'title' => $description = 'Mise à jour du remorque ' 
             .$remorque->libelle,

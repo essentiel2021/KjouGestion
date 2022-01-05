@@ -22,13 +22,16 @@ class Transfert extends Model
     } 
 
     public function chauffeur(){
-        return $this->belongsTo(Site::class);
+        return $this->belongsTo(Chauffeur::class,'chauffeur_id');
     }
     public function produit(){
         return $this->belongsTo(Produit::class);
     }
     public function provenance(){
         return $this->belongsTo(Provenance::class);
+    }
+    public function site(){
+        return $this->belongsTo(Site::class,'site_id');
     }
     protected $guarded = [];
 }

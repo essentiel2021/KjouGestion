@@ -25,5 +25,8 @@ class Chauffeur extends Model
     public function lots(){
         return $this->hasMany(Lot::class);
     }
+    public function transferts(){
+        return $this->hasMany(Transfert::class);
+    }
     protected $guarded = [];
 }

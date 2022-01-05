@@ -8,6 +8,7 @@ use App\Models\Campagne;
 
 class CampagneController extends Controller
 {
+    protected $perPage = 5;
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +16,13 @@ class CampagneController extends Controller
      */
     public function index()
     {
+        $campagnes = Campagne::orderByDesc('id')->paginate($this->perPage);
+        $data = [
+            'title' => 'Liste des campagnes',
+            'description' => 'Retrouvez toutes les campagnes de '. config('app.name'),
+            'campagnes' => $campagnes
+        ];
+        return view('campagnes.index',$data);
     
     }
 

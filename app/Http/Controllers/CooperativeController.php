@@ -72,7 +72,6 @@ class CooperativeController extends Controller
      */
     public function edit(Cooperative $cooperative)
     {
-        dd($cooperative);
         $data = [
             'title' => $description = 'Mise à jour de la cooperative' 
             .$cooperative->nom,

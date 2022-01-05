@@ -70,9 +70,15 @@ class ProvenanceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Provenance $provenance)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour de la provenance ' 
+            .$provenance->libelle,
+            'description' => $description,
+            'provenance' => $provenance
+        ];
+        return view('provenances.edit',$data);  
     }
 
     /**

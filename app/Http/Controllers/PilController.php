@@ -72,7 +72,6 @@ class PilController extends Controller
      */
     public function edit(Pil $pil)
     {
-        dd($pil);
         $data = [
             'title' => $description = 'Mise à jour du pil ' 
             .$pil->libelle,

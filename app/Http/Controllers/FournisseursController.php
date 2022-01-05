@@ -72,7 +72,6 @@ class FournisseursController extends Controller
      */
     public function edit(Fournisseur $fournisseur)
     {
-        dd($fournisseur);
         $data = [
             'title' => $description = 'Mise à jour du fournisseur ' 
             .$fournisseur->nom,

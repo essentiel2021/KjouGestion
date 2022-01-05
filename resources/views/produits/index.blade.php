@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{ $produit->libelle }}</td>
                                     <td>
-                                        <a href="{{ route('produits.edit',['produit' => $produit->libelle]) }}" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('produits.edit',['produit' => $produit->slug]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf

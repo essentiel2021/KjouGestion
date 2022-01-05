@@ -16,11 +16,11 @@ class AnalyseDechargementController extends Controller
      */
     public function index()
     {
-        $analysesdechargements = AnalyseDechargement::orderByDesc('id')->paginate($this->perPage);
+        $analysesDechargements = AnalyseDechargement::orderByDesc('id')->paginate($this->perPage);
         $data = [
             'title' => 'Liste des analyses de dechargements',
             'description' => 'Retrouvez toutes les analyses de déchargements de '. config('app.name'),
-            'analysesdechargements' => $analysesdechargements
+            'analysesDechargements' => $analysesDechargements
         ];
         return view('analyseDechargements.index',$data);
     }
@@ -48,7 +48,6 @@ class AnalyseDechargementController extends Controller
     public function store(AnalyseDechargementRequest $request)
     {
         $validatedData = $request->validated();
-        //AnalyseDechargement::create($validatedData);
         AnalyseDechargement::create($validatedData);
         $success = 'analyse de dechargement ajouté';
         return back()->withSuccess($success);
@@ -71,9 +70,14 @@ class AnalyseDechargementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(AnalyseDechargement $analyseDechargement)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour de l\'analyse de dechargement'. $analyseDechargement,
+            'description' => $description,
+            'analyseDechargement' => $analyseDechargement
+        ];
+        return view('analyseDechargements.edit',$data);
     }
 
     /**
