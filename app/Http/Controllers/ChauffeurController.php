@@ -49,7 +49,7 @@ class ChauffeurController extends Controller
     {
         $validatedData = $request->validated();
         Chauffeur::create($validatedData);
-        $success = 'fournisseur ajouté';
+        $success = 'chauffeur ajouté';
         return back()->withSuccess($success);
     }
 

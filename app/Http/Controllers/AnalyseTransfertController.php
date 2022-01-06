@@ -16,11 +16,11 @@ class AnalyseTransfertController extends Controller
      */
     public function index()
     {
-        $analysestransferts = AnalyseTransfert::orderByDesc('id')->paginate($this->perPage);
+        $analysetransferts = AnalyseTransfert::orderByDesc('id')->paginate($this->perPage);
         $data = [
             'title' => 'Liste des analyses de transferts',
             'description' => 'Retrouvez toutes les analyses de transferts de '. config('app.name'),
-            'analysestransferts' => $analysestransferts
+            'analysetransferts' => $analysetransferts
         ];
         return view('analyseTransferts.index',$data);
     }
@@ -70,13 +70,13 @@ class AnalyseTransfertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(AnalyseTransfert $analysestransfert)
+    public function edit(AnalyseTransfert $analysetransfert)
     {
         $data = [
             'title' => $description = 'Mise à jour de l\'analyse de transfert ' 
-            .$analysestransfert->analyseur,
+            .$analysetransfert->analyseur,
             'description' => $description,
-            'client' => $analysestransfert
+            'analysetransfert' => $analysetransfert
         ];
         return view('analyseTransferts.edit',$data);
     }

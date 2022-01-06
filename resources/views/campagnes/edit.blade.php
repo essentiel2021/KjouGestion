@@ -18,32 +18,32 @@
 
             <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                    Modification de la coopérative {{ $cooperative->nom }}
+                    Ajouter une nouvelle campagne
                 </div>
                 <div class="card-body">
                 
-                <form action="{{ route('cooperatives.store') }}" method="post">
+                <form action="{{ route('campagnes.update',['campagne' => $campagne->slug]) }}" method="post">
 
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label for="nom">Nom</label>
-                        <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom',$cooperative->nom) }}">
-                        @error('nom')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
                         <label for="libelle">Libelle</label>
-                        <input type="text" name="libelle" class="form-control @error('libelle') is-invalid @enderror" value="{{ old('libelle',$cooperative->libelle) }}">
+                        <input type="text" name="libelle" class="form-control @error('libelle') is-invalid @enderror" value="{{ old('libelle',$campagne->libelle) }}">
                         @error('libelle')
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="sigle">Sigle</label>
-                        <input type="text" name="sigle" class="form-control @error('libelle') is-invalid @enderror" value="{{ old('sigle',$cooperative->sigle) }}">
-                        @error('sigle')
+                        <label for="annee_encours">Année en cours</label>
+                        <input type="date" name="annee_encours" class="form-control @error('annee_encours') is-invalid @enderror" value="{{ old('annee_encours',$campagne->annee_encours) }}">
+                        @error('annee_encours')
+                            <div class="error">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="annee_suivante">Année suivante</label>
+                        <input type="date" name="annee_suivante" class="form-control @error('annee_suivante') is-invalid @enderror" value="{{ old('annee_suivante',$campagne->annee_suivante) }}">
+                        @error('annee_suivante')
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>

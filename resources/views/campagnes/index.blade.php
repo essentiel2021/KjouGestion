@@ -29,10 +29,10 @@
                             @foreach ($campagnes as $campagne)
                                 <tr>
                                     <td>{{ $campagne->libelle }}</td>
-                                    <td>{{ $campagne->libelle }}</td>
-                                    <td>{{ $campagne->libelle }}</td>
+                                    <td>{{ $campagne->annee_encours }}</td>
+                                    <td>{{ $campagne->annee_suivante }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{route('campagnes.edit',['campagne' => $campagne->slug])}}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf

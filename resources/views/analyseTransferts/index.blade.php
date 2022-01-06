@@ -36,18 +36,18 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($analysestransferts as $analysestransfert)
+                            @foreach ($analysetransferts as $analysetransfert)
                                 <tr>
-                                    <td>{{ $analysestransfert->analyseur }}</td>
-                                    <td>{{ $analysestransfert->th_amande }}</td>
-                                    <td>{{ $analysestransfert->th_cajou }}</td>
-                                    <td>{{ $analysestransfert->outturn }}</td>
-                                    <td>{{ $analysestransfert->grainage }}</td>
-                                    <td>{{ $analysestransfert->huileux }}</td>
-                                    <td>{{ $analysestransfert->pique }}</td>
-                                    <td>{{ $analysestransfert->prix }}</td>
+                                    <td>{{ $analysetransfert->analyseur }}</td>
+                                    <td>{{ $analysetransfert->th_amande }}</td>
+                                    <td>{{ $analysetransfert->th_cajou }}</td>
+                                    <td>{{ $analysetransfert->outturn }}</td>
+                                    <td>{{ $analysetransfert->grainage }}</td>
+                                    <td>{{ $analysetransfert->huileux }}</td>
+                                    <td>{{ $analysetransfert->pique }}</td>
+                                    <td>{{ $analysetransfert->prix }}</td>
                                     <td>
-                                        <a href="{{ route('analysetransferts.edit', ['analysetransfert' => $analysestransfert->id]) }}" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('analysetransferts.edit', ['analysetransfert' => $analysetransfert->id]) }}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf
@@ -59,7 +59,7 @@
                         </tbody>
                     </table>
                     <div class="pagination">
-                        {{ $analysestransferts->links() }}
+                        {{ $analysetransferts->links() }}
                     </div>
                 </div>
             </div>

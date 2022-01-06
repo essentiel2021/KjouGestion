@@ -72,9 +72,15 @@ class CampagneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Campagne $campagne)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour du client ' 
+            .$campagne->libelle,
+            'description' => $description,
+            'campagne' => $campagne
+        ];
+        return view('campagnes.edit',$data);
     }
 
     /**
