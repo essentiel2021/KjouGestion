@@ -72,7 +72,13 @@ class SiteController extends Controller
      */
     public function edit(Site $site)
     {
-        
+        $data = [
+            'title' => $description = 'Mise à jour du site' 
+            .$site->libelle,
+            'description' => $description,
+            'site' => $site
+        ];
+        return view('sites.edit',$data);  
     }
 
     /**

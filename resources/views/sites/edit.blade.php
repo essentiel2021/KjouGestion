@@ -18,16 +18,16 @@
 
             <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                    Modification de la pil {{$pil->libelle}}
+                Ajouter un site
                 </div>
                 <div class="card-body">
                 
-                <form action="{{ route('pils.update',['pil' => $pil->slug]) }}" method="post">
+                <form action="{{ route('sites.update',['site' => $site->slug]) }}" method="post">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label for="nom">Libelle</label>
-                        <input type="text" name="libelle" class="form-control @error('libelle') is-invalid @enderror" value="{{ old('libelle',$pil->libelle) }}">
+                        <input type="text" name="libelle" class="form-control @error('libelle') is-invalid @enderror" value="{{ old('libelle',$site->libelle) }}">
                         @error('libelle')
                             <div class="error">{{ $message }}</div>
                         @enderror

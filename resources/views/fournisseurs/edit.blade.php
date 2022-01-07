@@ -27,14 +27,14 @@
                     @csrf
                     <div class="form-group">
                         <label for="nom">nom</label>
-                        <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom') }}">
+                        <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom',$fournisseur->nom) }}">
                         @error('nom')
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="nom">Contact</label>
-                        <input type="text" name="contact" class="form-control @error('nom') is-invalid @enderror" value="{{ old('contact') }}">
+                        <label for="contact">Contact</label>
+                        <input type="text" name="contact" class="form-control @error('nom') is-invalid @enderror" value="{{ old('contact',$fournisseur->contact) }}">
                         @error('contact')
                             <div class="error">{{ $message }}</div>
                         @enderror

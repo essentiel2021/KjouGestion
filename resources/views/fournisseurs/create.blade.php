@@ -33,7 +33,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="nom">Contact</label>
+                        <label for="contact">Contact</label>
                         <input type="text" name="contact" class="form-control @error('nom') is-invalid @enderror" value="{{ old('contact') }}">
                         @error('contact')
                             <div class="error">{{ $message }}</div>

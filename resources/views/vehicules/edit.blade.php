@@ -18,21 +18,22 @@
 
             <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                    Modification de la pil {{$pil->libelle}}
+                Ajouter un chauffeur
                 </div>
                 <div class="card-body">
                 
-                <form action="{{ route('pils.update',['pil' => $pil->slug]) }}" method="post">
-                    @method('PUT')
+                <form action="{{ route('vehicules.update',['vehicule' => $vehicule->slug]) }}" method="post">
+
                     @csrf
+
                     <div class="form-group">
-                        <label for="nom">Libelle</label>
-                        <input type="text" name="libelle" class="form-control @error('libelle') is-invalid @enderror" value="{{ old('libelle',$pil->libelle) }}">
-                        @error('libelle')
+                        <label for="matricule">Numéro matricule</label>
+                        <input type="text" name="matricule" class="form-control @error('numeroPermis') is-invalid @enderror" value="{{ old('matricule') }}">
+                        @error('matricule')
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Modifier</button>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
                 </form>
 
                 </div>
