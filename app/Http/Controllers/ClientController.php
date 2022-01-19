@@ -89,9 +89,13 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClientRequest $request, Client $client)
     {
-        //
+        $validatedData = $request->validated();
+        Client::updateOrCreate(['id' => $client->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        return back()->withSuccess($success);
+        //return redirect()->route('')->withSuccess($success);
     }
 
     /**

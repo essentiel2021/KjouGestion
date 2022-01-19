@@ -24,7 +24,7 @@ class RemorqueRequest extends FormRequest
     public function rules()
     {
         return [
-            'libelle' => ['required','min:5','max:10']
+            'libelle' => ['required','min:5']
         ];
     }
 }

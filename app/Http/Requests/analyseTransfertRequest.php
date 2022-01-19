@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class analyseTransfertRequest extends FormRequest
@@ -24,8 +25,9 @@ class analyseTransfertRequest extends FormRequest
     public function rules()
     {
         return [
-            'analyseur' => ['required','unique:analysetransferts,analyseur'],
-            'libelle' => ['required','unique:analysetransferts,libelle'],
+            'analyseur' => $this->method() == 'POST' ? ['required','unique:analysetransferts,analyseur'] :
+            ['required',Rule::unique('analysetransferts')->ignore($this->analysetransfert)],
+            'libelle' => ['required'],
             'th_amande' => ['required'],
             'th_cajou' => ['required'],
             'outturn' => ['required'],

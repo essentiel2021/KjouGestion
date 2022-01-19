@@ -18,7 +18,7 @@
 
             <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                    Modification du produit {{}}
+                    Modification du produit {{$produit->libelle}}
                 </div>
                 <div class="card-body">
                 

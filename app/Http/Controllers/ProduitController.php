@@ -88,9 +88,13 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProduitRequest $request, Produit $produit)
     {
-        //
+        $validatedData = $request->validated();
+        Produit::updateOrCreate(['id' => $produit->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        return back()->withSuccess($success);
+        
     }
 
     /**

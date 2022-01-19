@@ -75,7 +75,7 @@ class AnalyseDechargementController extends Controller
         $data = [
             'title' => $description = 'Mise à jour de l\'analyse de dechargement'. $analyseDechargement,
             'description' => $description,
-            'analyseDechargement' => $analyseDechargement
+            'analysedechargement' => $analyseDechargement
         ];
         return view('analyseDechargements.edit',$data);
     }
@@ -87,7 +87,7 @@ class AnalyseDechargementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AnalyseDechargementRequest $request, )
     {
         //
     }

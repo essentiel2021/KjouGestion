@@ -12,11 +12,6 @@ class Lot extends Model
 {
     use HasFactory,HasSlug;
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-    
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
@@ -62,10 +57,10 @@ class Lot extends Model
         return $this->belongsTo(Transfert::class);
     }
     public function analyseDechargement(){
-        return $this->belongsTo(AnalyseDechargement::class);
+        return $this->belongsTo(AnalyseDechargement::class,'analysedechargement_id');
     }
     public function analyseTransfert(){
-        return $this->belongsTo(AnalyseTransfert::class);
+        return $this->belongsTo(AnalyseTransfert::class,'analysetransfert_id');
     }
     protected $guarded = [];
 }

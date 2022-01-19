@@ -88,9 +88,12 @@ class ChauffeurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( ChauffeurRequest $request, Chauffeur $chauffeur)
     {
-        //
+        $validatedData = $request->validated();
+        Chauffeur::updateOrCreate(['id' => $chauffeur->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        return back()->withSuccess($success);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class FournisseurRequest extends FormRequest
 {
@@ -24,8 +25,8 @@ class FournisseurRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => ['required','min:5','max:10'],
-            'contact' => ['required','min:10','max:10','unique:fournisseurs'],
+            'nom' => ['required','min:5'],
+            'contact' => $this->method() == 'POST' ? ['required','min:10','max:10','unique:fournisseurs'] : ['required','min:10','max:10',Rule::unique('fournisseurs')->ignore($this->fournisseur)] ,
             'sexe' => ['required']
         ];
     }

@@ -75,11 +75,11 @@ class CampagneController extends Controller
     public function edit(Campagne $campagne)
     {
         $data = [
-            'title' => $description = 'Mise à jour du client ' 
+            'title' => $description = 'Mise à jour du campagne ' 
             .$campagne->libelle,
             'description' => $description,
             'campagne' => $campagne
-        ];
+         ];
         return view('campagnes.edit',$data);
     }
 
@@ -90,9 +90,12 @@ class CampagneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CampagneRequest $request, Campagne $campagne)
     {
-        //
+        $validatedData = $request->validated();
+        Campagne::updateOrCreate(['id' => $campagne->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        return back()->withSuccess($success);
     }
 
     /**

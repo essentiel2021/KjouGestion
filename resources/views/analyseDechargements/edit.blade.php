@@ -18,11 +18,11 @@
 
             <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                    Modification de l'analyse de dechargement {{$analyseDechargement->analyseur}}
+                    Modification de l'analyse de dechargement {{$analysedechargement->analyseur}}
                 </div>
                 <div class="card-body">
                 
-                <form action="{{ route('analysedechargements.update',['analysedechargement' => $analyseDechargement->id]) }}" method="post">
+                <form action="{{ route('analysedechargements.update',['analysedechargement' => $analysedechargement->id]) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">

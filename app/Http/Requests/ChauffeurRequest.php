@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ChauffeurRequest extends FormRequest
@@ -25,7 +26,7 @@ class ChauffeurRequest extends FormRequest
     {
         return [
             'nom' => ['required','min:5','max:10'],
-            'numeroPermis' => ['required','unique:chauffeurs'],
+            'numeroPermis' => $this->method() == 'POST' ? ['required','unique:chauffeurs'] : ['required',Rule::unique('chauffeurs')->ignore($this->chauffeur)],
         ];
     }
 }

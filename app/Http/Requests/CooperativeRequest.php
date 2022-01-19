@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CooperativeRequest extends FormRequest
 {
@@ -24,9 +25,10 @@ class CooperativeRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => ['required','min:5','max:10'],
+            'nom' => $this->method() == 'POST' ? ['required','min:5','max:10','unique:cooperatives,nom'] :
+            ['required','min:5','max:10',Rule::unique('cooperatives')->ignore($this->cooperative)] ,
             'libelle' => ['required'],
-            'sigle' =>['required','max:3']
+            'sigle' =>['required','max:5','unique:cooperatives,sigle']
         ];
     }
 }

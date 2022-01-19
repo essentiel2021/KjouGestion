@@ -18,7 +18,8 @@ class Campagne extends Model
     {
         return SlugOptions::create()
             ->generateSlugsFrom('libelle')
-            ->saveSlugsTo('slug');
+            ->saveSlugsTo('slug')
+            ->doNotGenerateSlugsOnUpdate();
     }
     public function lots(){
         return $this->hasMany(Lot::class);

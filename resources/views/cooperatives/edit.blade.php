@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-body">
                 
-                <form action="{{ route('cooperatives.store') }}" method="post">
+                <form action="{{ route('cooperatives.update',['cooperative' => $cooperative->slug]) }}" method="post">
 
                     @method('PUT')
                     @csrf
@@ -47,7 +47,7 @@
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
                 </form>
 
                 </div>

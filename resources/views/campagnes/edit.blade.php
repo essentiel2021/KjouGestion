@@ -18,7 +18,7 @@
 
             <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                    Ajouter une nouvelle campagne
+                    Modification de la campagne {{ $campagne->libelle }}
                 </div>
                 <div class="card-body">
                 

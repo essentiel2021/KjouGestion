@@ -18,7 +18,7 @@
 
             <div class="card card-outline-secondary my-4">
                 <div class="card-header">
-                Ajouter un fournisseur
+                    Modification du fournissuer {{ $fournisseur->nom}}
                 </div>
                 <div class="card-body">
                 
@@ -40,13 +40,13 @@
                         @enderror
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input @error('nom') is-invalid @enderror" type="radio" name="sexe" id="masculin" value="M" {{ old('sexe') == 'M'?'checked' : ''}}>
+                        <input class="form-check-input @error('nom') is-invalid @enderror" type="radio" name="sexe" id="masculin" value="M" {{ old('sexe',$fournisseur->sexe) == 'M'?'checked' : ''}}>
                         <label class="form-check-label" for="masculin">
                           Masculin
                         </label>
                     </div>
                     <div class="form-check mb-2">
-                        <input class="form-check-input @error('nom') is-invalid @enderror" type="radio" name="sexe" id="feminin" value="F" {{ old('sexe') == 'F'?'checked' : ''}}>
+                        <input class="form-check-input @error('nom') is-invalid @enderror" type="radio" name="sexe" id="feminin" value="F" {{ old('sexe',$fournisseur->sexe) == 'F'?'checked' : ''}}>
                         <label class="form-check-label" for="feminin">
                           Feminin
                         </label>
@@ -54,7 +54,7 @@
                     @error('sexe')
                         <div class="error mb-2 ">{{ $message }}</div>
                     @enderror
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
                 </form>
 
                 </div>

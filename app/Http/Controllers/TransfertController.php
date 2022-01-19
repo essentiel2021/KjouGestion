@@ -130,9 +130,22 @@ class TransfertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Transfert $transfert)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour du site' 
+            .$transfert->libelle,
+            'description' => $description,
+            'fournisseurs' => Fournisseur::get(),
+            'clients' => Client::get(),
+            'vehicules' => Vehicule::get(),
+            'chauffeurs' => Chauffeur::get(),
+            'sites' => Site::get(),
+            'produits' => Produit::get(),
+            'provenances' => Provenance::get(),
+            'transfert' => $transfert
+        ];
+        return view('transferts.edit',$data);
     }
 
     /**
@@ -144,7 +157,7 @@ class TransfertController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

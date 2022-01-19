@@ -24,7 +24,7 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => ['required','min:5','max:10']
+            'nom' => ['required','min:5']
         ];
     }
 }

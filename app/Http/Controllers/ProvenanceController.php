@@ -88,9 +88,13 @@ class ProvenanceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProvenanceRequest $request, Provenance $provenance)
     {
-        //
+        $validatedData = $request->validated();
+        $provenance = Provenance::updateOrCreate(['id' => $provenance->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        //return back()->withSuccess($success);
+        return redirect()->route('provenances.edit',['provenance' => $provenance->slug])->withSuccess($success);
     }
 
     /**

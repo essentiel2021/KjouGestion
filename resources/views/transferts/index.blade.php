@@ -53,7 +53,7 @@
                                     <td>{{$transfert->poids_sortie}}</td>
                                     <td>{{ $transfert->poids_usine }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{route('transferts.edit',['transfert' => $transfert->id])}}" class="btn btn-info">Modifier</a> &nbsp;
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf

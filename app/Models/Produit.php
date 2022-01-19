@@ -14,7 +14,8 @@ class Produit extends Model
     {
         return SlugOptions::create()
             ->generateSlugsFrom('libelle')
-            ->saveSlugsTo('slug');
+            ->saveSlugsTo('slug')
+            ->doNotGenerateSlugsOnUpdate();
     }
     public function getRouteKeyName()
     {

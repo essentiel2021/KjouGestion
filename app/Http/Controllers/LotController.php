@@ -29,7 +29,7 @@ class LotController extends Controller
      */
     public function index()
     {
-        $lots = Chauffeur::orderByDesc('id')->paginate($this->perPage);
+        $lots = Lot::orderByDesc('id')->paginate($this->perPage);
         $data = [
             'title' => 'Liste des lots',
             'description' => 'Retrouvez tous les lots de '. config('app.name'),
@@ -110,9 +110,28 @@ class LotController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Lot $lot)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour du lot ' 
+            .$lot->libelle,
+            'description' => $description,
+            'campagnes' => Campagne::get(),
+            'cooperatives' => Cooperative::get(),
+            'fournisseurs' => Fournisseur::get(),
+            'clients' => Client::get(),
+            'vehicules' => Vehicule::get(),
+            'chauffeurs' => Chauffeur::get(),
+            'sites' => Site::get(),
+            'produits' => Produit::get(),
+            'provenances' => Provenance::get(),
+            'transferts' => Transfert::get(),
+            'analysedechargements' => AnalyseDechargement::get(),
+            'analysetransferts' => AnalyseTransfert::get(),
+            'pils' => Pil::get(),
+            'lot' => $lot
+        ];
+        return view('lots.edit',$data);
     }
 
     /**

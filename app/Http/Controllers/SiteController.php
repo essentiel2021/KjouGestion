@@ -88,9 +88,13 @@ class SiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SiteRequest $request,Site $site)
     {
-        //
+        $validatedData = $request->validated();
+        $site = Site::updateOrCreate(['id' => $site->id],$validatedData);
+        $success = 'Modfication effectué avec succès';
+        return redirect()->route('sites.edit',['site' => $site->slug])->withSuccess($success);
+        //return back()->withSuccess($success);
     }
 
     /**

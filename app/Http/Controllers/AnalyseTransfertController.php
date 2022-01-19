@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\analyseTransfertRequest;
 use App\Models\AnalyseTransfert;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class AnalyseTransfertController extends Controller
@@ -88,9 +89,12 @@ class AnalyseTransfertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(analyseTransfertRequest $request, AnalyseTransfert $analyseTransfert)
     {
-        //
+        $validatedData = $request->validated();
+        AnalyseTransfert::updateOrCreate(['id' => $analyseTransfert->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        return back()->withSuccess($success);
     }
 
     /**

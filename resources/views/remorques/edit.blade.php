@@ -23,7 +23,7 @@
                 <div class="card-body">
                 
                 <form action="{{ route('remorques.update',['remorque' => $remorque->slug]) }}" method="post">
-
+                    @method('PUT')
                     @csrf
 
                     <div class="form-group">

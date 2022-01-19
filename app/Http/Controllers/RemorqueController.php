@@ -88,9 +88,13 @@ class RemorqueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RemorqueRequest $request, Remorque $remorque)
     {
-        //
+        $validatedData = $request->validated();
+        $remorque = Remorque::updateOrCreate(['id' => $remorque->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        return redirect()->route('remorques.edit',['remorque'=> $remorque->slug])->withSuccess($success);
+        //return back()->withSuccess($success);
     }
 
     /**
