@@ -7,36 +7,49 @@
         <div class="card shadow mb-4">
             
             <div class="card-body">
+                <h2>Campagnes</h2>
+                <div class="bg-gray-100 p-3 mb-3">
+                    <a href="{{ route('campagnes.create') }}" class="btn btn-success">Nouvelle campagne</a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Libelle</th>
-                                <th>Année en cours</th>
-                                <th>Année suivante</th>
-                                <th>Operations</th>
+                                <th>Détails</th>
+                                <th>Modifier</th>
+                                <th>supprimer</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Libelle</th>
-                                <th>Année en cours</th>
-                                <th>Année suivante</th>
-                                <th>Operations</th>
+                                <th>Détails</th>
+                                <th>Modifier</th>
+                                <th>supprimer</th>
                             </tr>
                         </tfoot>
                         <tbody>
                             @foreach ($campagnes as $campagne)
                                 <tr>
                                     <td>{{ $campagne->libelle }}</td>
-                                    <td>{{ $campagne->annee_encours }}</td>
-                                    <td>{{ $campagne->annee_suivante }}</td>
                                     <td>
-                                        <a href="{{route('campagnes.edit',['campagne' => $campagne->slug])}}" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{route('campagnes.show',['campagne' => $campagne->slug])}}">
+                                            <i class="fas fa-bars"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{route('campagnes.edit',['campagne' => $campagne->slug])}}">
+                                            <i class="far fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">supprimer</button>
+                                            <a href="">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
                                         </form>
                                     </td>
                                 </tr>

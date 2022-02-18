@@ -12,13 +12,17 @@
                         <thead>
                             <tr>
                                 <th>Libelle</th>
-                                <th>Operations</th>
+                                <th>Détails</th>
+                                <th>Modifier</th>
+                                <th>supprimer</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Libelle</th>
-                                <th>Operations</th>
+                                <th>Détails</th>
+                                <th>Modifier</th>
+                                <th>supprimer</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -26,11 +30,16 @@
                                 <tr>
                                     <td>{{ $site->libelle }}</td>
                                     <td>
-                                        <a href="{{ route('sites.edit',['site' => $site->slug]) }}" class="btn btn-info">Modifier</a> &nbsp;
+                                        <a href="{{ route('sites.show',['site' => $site->slug]) }}" ><i class="fas fa-bars"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('sites.edit',['site' => $site->slug]) }}" ><i class="far fa-edit"></i></a>
+                                    </td>
+                                    <td>
                                         <form style="display: inline;" action="" method="post">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">supprimer</button>
+                                           <a href=""></a>
                                         </form>
                                     </td>
                                 </tr>

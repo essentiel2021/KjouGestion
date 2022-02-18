@@ -70,9 +70,15 @@ class VehiculeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vehicule $vehicule)
     {
-        //
+        $data = [
+            'title' => $description = 'Mise à jour du vehicule ' 
+            .$vehicule->libelle,
+            'description' => $description,
+            'vehicule' => $vehicule
+         ]; 
+        return view('vehicules.edit',$data);
     }
 
     /**
@@ -82,9 +88,12 @@ class VehiculeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VehiculeRequest $request, Vehicule $vehicule)
     {
-        //
+        $validatedData = $request->validated();
+        Vehicule::updateOrCreate(['id' => $vehicule->id],$validatedData);
+        $success = 'Modification effectué avec succès';
+        return back()->withSuccess($success);
     }
 
     /**

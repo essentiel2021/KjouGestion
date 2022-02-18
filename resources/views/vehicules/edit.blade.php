@@ -22,18 +22,18 @@
                 </div>
                 <div class="card-body">
                 
-                <form action="{{ route('vehicules.update',['vehicule' => $vehicule->slug]) }}" method="post">
-
+                <form action="{{ route('vehicules.update',['vehicule' => $vehicule->id]) }}" method="post">
+                    @method('PUT')
                     @csrf
 
                     <div class="form-group">
                         <label for="matricule">Numéro matricule</label>
-                        <input type="text" name="matricule" class="form-control @error('numeroPermis') is-invalid @enderror" value="{{ old('matricule') }}">
+                        <input type="text" name="matricule" class="form-control @error('matricule') is-invalid @enderror" value="{{ old('matricule', $vehicule->matricule) }}">
                         @error('matricule')
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
                 </form>
 
                 </div>
